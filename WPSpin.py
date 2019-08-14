@@ -87,12 +87,14 @@ class WPSpin(object):
         pin = str(pin) + str(self._checksum(pin))
         return pin.zfill(8)
 
-    def getAll(self, mac):
+    def getAll(self, mac, get_static=True):
         '''
         Get all WPS pin's for single MAC
         '''
         res = []
         for ID, algo in self.algos.items():
+            if algo['mode'] == self.ALGO_STATIC and not get_static:
+                continue
             item = {}
             item['id'] = ID
             if algo['mode'] == self.ALGO_STATIC:
