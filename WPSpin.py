@@ -57,7 +57,7 @@ class WPSpin(object):
         mac = int(mac, 16)
         return mac
 
-    def _checksum(self, pin):
+    def checksum(self, pin):
         '''
         Standard WPS checksum algorithm.
         @pin — A 7 digit pin to calculate the checksum for.
@@ -84,7 +84,7 @@ class WPSpin(object):
         if algo == 'pinEmpty':
             return pin
         pin = pin % 10000000
-        pin = str(pin) + str(self._checksum(pin))
+        pin = str(pin) + str(self.checksum(pin))
         return pin.zfill(8)
 
     def getAll(self, mac, get_static=True):
@@ -103,6 +103,14 @@ class WPSpin(object):
                 item['name'] = algo['name']
             item['pin'] = self.generate(ID, mac)
             res.append(item)
+        return res
+
+    def getList(self, mac, get_static=True):
+        res = []
+        for ID, algo in self.algos.items():
+            if algo['mode'] == self.ALGO_STATIC and not get_static:
+                continue
+            res.append(self.generate(ID, mac))
         return res
 
     def pin24(self, mac):
