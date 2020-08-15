@@ -7,4 +7,4 @@
 from .wpspin import WPSpin
 
 __author__ = 'drygdryg'
-__version__ = '0.1'
+__version__ = '0.2'
