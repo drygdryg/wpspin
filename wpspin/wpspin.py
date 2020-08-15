@@ -331,7 +331,7 @@ class WPSpin():
         mac = mac.string.replace(':', '')
         oui = int(mac[:6], 16)
         nic = int(mac[6:], 16)
-        pin = oui - nic if nic < oui else (oui + int(10e6) - nic) & 0xFFFFFF
+        pin = oui - nic if nic < oui else (oui + 0x1000000 - nic) & 0xFFFFFF
         return pin
 
     def pinOUIxorNIC(self, mac):
