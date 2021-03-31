@@ -81,6 +81,15 @@ class WPSpin():
         self.algos['pin40'] = {'name': '40-bit PIN', 'mode': self.ALGO_MAC, 'gen': self.pin40}
         self.algos['pin44'] = {'name': '44-bit PIN', 'mode': self.ALGO_MAC, 'gen': self.pin44}
         self.algos['pin48'] = {'name': '48-bit PIN', 'mode': self.ALGO_MAC, 'gen': self.pin48}
+        self.algos['pin24rh'] = {'name': 'Reverse byte 24-bit', 'mode': self.ALGO_MAC, 'gen': self.pin24rh}
+        self.algos['pin32rh'] = {'name': 'Reverse byte 32-bit', 'mode': self.ALGO_MAC, 'gen': self.pin32rh}
+        self.algos['pin48rh'] = {'name': 'Reverse byte 48-bit', 'mode': self.ALGO_MAC, 'gen': self.pin48rh}
+        self.algos['pin24rn'] = {'name': 'Reverse nibble 24-bit', 'mode': self.ALGO_MAC, 'gen': self.pin24rn}
+        self.algos['pin32rn'] = {'name': 'Reverse nibble 32-bit', 'mode': self.ALGO_MAC, 'gen': self.pin32rn}
+        self.algos['pin48rn'] = {'name': 'Reverse nibble 48-bit', 'mode': self.ALGO_MAC, 'gen': self.pin48rn}
+        self.algos['pin24rb'] = {'name': 'Reverse bits 24-bit', 'mode': self.ALGO_MAC, 'gen': self.pin24rb}
+        self.algos['pin32rb'] = {'name': 'Reverse bits 32-bit', 'mode': self.ALGO_MAC, 'gen': self.pin32rb}
+        self.algos['pin48rb'] = {'name': 'Reverse bits 48-bit', 'mode': self.ALGO_MAC, 'gen': self.pin48rb}
         self.algos['pinDLink'] = {'name': 'D-Link PIN', 'mode': self.ALGO_MAC, 'gen': self.pinDLink}
         self.algos['pinDLink1'] = {'name': 'D-Link PIN +1', 'mode': self.ALGO_MAC, 'gen': self.pinDLink1}
         self.algos['pinASUS'] = {'name': 'ASUS PIN', 'mode': self.ALGO_MAC, 'gen': self.pinASUS}
@@ -213,6 +222,7 @@ class WPSpin():
             'pin24': ('04BF6D', '0E5D4E', '107BEF', '14A9E3', '28285D', '2A285D', '32B2DC', '381766', '404A03', '4E5D4E', '5067F0', '5CF4AB', '6A285D', '8E5D4E', 'AA285D', 'B0B2DC', 'C86C87', 'CC5D4E', 'CE5D4E', 'EA285D', 'E243F6', 'EC43F6', 'EE43F6', 'F2B2DC', 'FCF528', 'FEF528', '4C9EFF', '0014D1', 'D8EB97', '1C7EE5', '84C9B2', 'FC7516', '14D64D', '9094E4', 'BCF685', 'C4A81D', '00664B', '087A4C', '14B968', '2008ED', '346BD3', '4CEDDE', '786A89', '88E3AB', 'D46E5C', 'E8CD2D', 'EC233D', 'ECCB30', 'F49FF3', '20CF30', '90E6BA', 'E0CB4E', 'D4BF7F4', 'F8C091', '001CDF', '002275', '08863B', '00B00C', '081075', 'C83A35', '0022F7', '001F1F', '00265B', '68B6CF', '788DF7', 'BC1401', '202BC1', '308730', '5C4CA9', '62233D', '623CE4', '623DFF', '6253D4', '62559C', '626BD3', '627D5E', '6296BF', '62A8E4', '62B686', '62C06F', '62C61F', '62C714', '62CBA8', '62CDBE', '62E87B', '6416F0', '6A1D67', '6A233D', '6A3DFF', '6A53D4', '6A559C', '6A6BD3', '6A96BF', '6A7D5E', '6AA8E4', '6AC06F', '6AC61F', '6AC714', '6ACBA8', '6ACDBE', '6AD15E', '6AD167', '721D67', '72233D', '723CE4', '723DFF', '7253D4', '72559C', '726BD3', '727D5E', '7296BF', '72A8E4', '72C06F', '72C61F', '72C714', '72CBA8', '72CDBE', '72D15E', '72E87B', '0026CE', '9897D1', 'E04136', 'B246FC', 'E24136', '00E020', '5CA39D', 'D86CE9', 'DC7144', '801F02', 'E47CF9', '000CF6', '00A026', 'A0F3C1', '647002', 'B0487A', 'F81A67', 'F8D111', '34BA9A', 'B4944E'),
             'pin28': ('200BC7', '4846FB', 'D46AA8', 'F84ABF'),
             'pin32': ('000726', 'D8FEE3', 'FC8B97', '1062EB', '1C5F2B', '48EE0C', '802689', '908D78', 'E8CC18', '2CAB25', '10BF48', '14DAE9', '3085A9', '50465D', '5404A6', 'C86000', 'F46D04', '3085A9', '801F02'),
+            'pin24rh': ('D8EB97', '0014D1', '3C8CF8'),
             'pinDLink': ('14D64D', '1C7EE5', '28107B', '84C9B2', 'A0AB1B', 'B8A386', 'C0A0BB', 'CCB255', 'FC7516', '0014D1', 'D8EB97'),
             'pinDLink1': ('0018E7', '00195B', '001CF0', '001E58', '002191', '0022B0', '002401', '00265A', '14D64D', '1C7EE5', '340804', '5CD998', '84C9B2', 'B8A386', 'C8BE19', 'C8D3A3', 'CCB255', '0014D1'),
             'pinASUS': ('049226', '04D9F5', '08606E', '0862669', '107B44', '10BF48', '10C37B', '14DDA9', '1C872C', '1CB72C', '2C56DC', '2CFDA1', '305A3A', '382C4A', '38D547', '40167E', '50465D', '54A050', '6045CB', '60A44C', '704D7B', '74D02B', '7824AF', '88D7F6', '9C5C8E', 'AC220B', 'AC9E17', 'B06EBF', 'BCEE7B', 'C860007', 'D017C2', 'D850E6', 'E03F49', 'F0795978', 'F832E4', '00072624', '0008A1D3', '00177C', '001EA6', '00304FB', '00E04C0', '048D38', '081077', '081078', '081079', '083E5D', '10FEED3C', '181E78', '1C4419', '2420C7', '247F20', '2CAB25', '3085A98C', '3C1E04', '40F201', '44E9DD', '48EE0C', '5464D9', '54B80A', '587BE906', '60D1AA21', '64517E', '64D954', '6C198F', '6C7220', '6CFDB9', '78D99FD', '7C2664', '803F5DF6', '84A423', '88A6C6', '8C10D4', '8C882B00', '904D4A', '907282', '90F65290', '94FBB2', 'A01B29', 'A0F3C1E', 'A8F7E00', 'ACA213', 'B85510', 'B8EE0E', 'BC3400', 'BC9680', 'C891F9', 'D00ED90', 'D084B0', 'D8FEE3', 'E4BEED', 'E894F6F6', 'EC1A5971', 'EC4C4D', 'F42853', 'F43E61', 'F46BEF', 'F8AB05', 'FC8B97', '7062B8', '78542E', 'C0A0BB8C', 'C412F5', 'C4A81D', 'E8CC18', 'EC2280', 'F8E903F4'),
@@ -267,6 +277,36 @@ class WPSpin():
 
     def pin48(self, mac):
         return mac.integer
+
+    def pin24rh(self, mac):
+        b = [i for i in mac.string.split(':')]
+        return int(''.join(b[-1:-4:-1]), 16)
+
+    def pin32rh(self, mac):
+        b = [i for i in mac.string.split(':')]
+        return int(''.join(b[-1:-5:-1]), 16)
+
+    def pin48rh(self, mac):
+        b = [i for i in mac.string.split(':')]
+        return int(''.join(b[-1::-1]), 16)
+
+    def pin24rn(self, mac):
+        return int(mac.string.replace(':', '')[-1:-7:-1], 16)
+
+    def pin32rn(self, mac):
+        return int(mac.string.replace(':', '')[-1:-9:-1], 16)
+
+    def pin48rn(self, mac):
+        return int(mac.string.replace(':', '')[-1::-1], 16)
+
+    def pin24rb(self, mac):
+        return int(bin(mac.integer)[2:].zfill(24)[:-25:-1], 2)
+
+    def pin32rb(self, mac):
+        return int(bin(mac.integer)[2:].zfill(32)[:-33:-1], 2)
+
+    def pin48rb(self, mac):
+        return int(bin(mac.integer)[2:].zfill(48)[::-1], 2)
 
     def pinDLink(self, mac):
         # Get the NIC part
